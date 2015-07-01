@@ -44,7 +44,7 @@ TLatex t;
 t.SetTextAlign(22);
 t.SetTextSize(0.05);
 t.SetTextColor(1);
-c1 = new TCanvas("c1","Our pseudo data",200,10,700,500);
+c1 = new TCanvas("c1","Example Particle Decay",200,10,700,500);
 c1->SetFillColor(0);
 c1->SetBorderMode(0);
 c1->SetBorderSize(1);
