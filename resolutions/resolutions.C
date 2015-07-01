@@ -48,6 +48,7 @@ gRandom->SetSeed();
    double etrue1,etrue2,phitrue1,phitrue2;  // true energy of the 2 daughters
  double e1,px1,py1,phi1;  // smeared 4-momenta of daughter 1
  double e2,px2,py2,phi2;  // smeared 4-momenta of daughter 2
+ double masssmeared;
  for(int i=0;i<N;i++) {
    // choose phi for daughter 1 and daughter 2
    phitrue1=2*TMath::Pi()*gRandom->Rndm();
@@ -67,10 +68,14 @@ gRandom->SetSeed();
      px2=e2*cos(phi2);
      py2=e2*sin(phi2);
      // calculate smeared mass
-    
-
+     masssmeared=sqrt((e1+e2)**2 - (px1+px2)**2 - (py1+py2)**2);
+     histo1->Fill(masssmeared);
 
  }
+
+ histo1->Draw("");
+ c1->Update();
+ c1->SaveAs("c1.gif");
 
 }
 
