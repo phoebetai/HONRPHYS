@@ -59,11 +59,11 @@ gRandom->SetSeed();
    if(idebug) cout<<"etrue "<<etrue1<<" "<<etrue2<<endl;
    // choose phi for daughter 1 and daughter 2
    phitrue1=2*TMath::Pi()*gRandom->Rndm();
-   phitrue2 = phi1+TMath::Pi();
+   phitrue2 = phitrue1+TMath::Pi();
    if(idebug) cout<<"phitrue "<<phitrue1<<" "<<phitrue2<<endl;
      // smear true energy with resolution of detector
      e1=etrue1+resE*gRandom->Gaus(0.,1.);
-     e2=etrue1+resE*gRandom->Gaus(0.,1.);
+     e2=etrue2+resE*gRandom->Gaus(0.,1.);
      if(idebug) cout<<"e "<<e1<<" "<<e2<<endl;
      //smear angles with resolution of the detector
      phi1=phitrue1+resA*gRandom->Gaus(0.,1.);
@@ -76,8 +76,8 @@ gRandom->SetSeed();
      py2=e2*sin(phi2);
      if(idebug) cout<<"pxs "<<px1<<" "<<py1<<" "<<px2<<" "<<py2<<endl;
      // calculate smeared mass
-     masssmeared=sqrt((e1+e2)**2 - (px1+px2)**2 - (py1+py2)**2);
-     cout<<"masssmeared "<<masssmeared<<endl;
+     masssmeared=sqrt((e1+e2)*(e1+e2) - (px1+px2)*(px1+px2) - (py1+py2)*(py1+py2));
+     if(idebug) cout<<"masssmeared "<<masssmeared<<endl;
      histo1->Fill(masssmeared);
 
  }
