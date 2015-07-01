@@ -47,7 +47,7 @@ gRandom->SetSeed();
  // and thus their energy is equal to the magnitude of their momenta
  // by conservations of energy, their energy
  // work in 2D.  Can always choose my coordinate system so that the 2 daughters are in the same plane
- int N=1000;
+ int N=1;
    double etrue1,etrue2,phitrue1,phitrue2;  // true energy of the 2 daughters
  double e1,px1,py1,phi1;  // smeared 4-momenta of daughter 1
  double e2,px2,py2,phi2;  // smeared 4-momenta of daughter 2
